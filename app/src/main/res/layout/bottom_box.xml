@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_alignParentBottom="true">
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="80dp"
+        android:background="#006050"
+        android:id="@+id/bottomBar"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/money_glowing"
+            android:id="@+id/bottom_image"
+            android:layout_centerVertical="true"
+            android:paddingLeft="30dip"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="welcome to aaAssit"
+            android:textSize="25dip"
+            android:id="@+id/bottom_text"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+        <ImageView
+            android:layout_width="95px"
+            android:layout_height="80px"
+            android:src="@drawable/gear24"
+            android:scaleType="fitXY"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:paddingRight="10dip"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/bottomBar">
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/slideList">
+
+    </ListView>
+    </LinearLayout>
+</RelativeLayout>
