@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="AppTheme" parent="android:Theme.Material.Light">
+        
+    </style>
+    <style name="StyleListViewItem">
+        <item name="android:textSize">40px</item>
+        <item name="android:textColor">#ff000000</item>
     </style>
 </resources>

@@ -10,8 +10,8 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true">
         <ImageView
-            android:layout_width="180px"
-            android:layout_height="180px"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:src="@drawable/categories"
             android:id="@+id/ivIcon"/>
         <TextView
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="类别管理"
             android:layout_gravity="center"
-            android:textSize="20dip"
+            android:textSize="20dp"
             android:id="@+id/tvName"/>
     </LinearLayout>
 </RelativeLayout>

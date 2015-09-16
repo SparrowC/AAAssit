@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#404040">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2013-2-5"
+            style="@style/StyleListViewItem"
+            android:textColor="#ffffff"
+            android:textSize="15dp"
+            android:id="@+id/queryConsumeListItem_Date"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="共1笔，合计消费1000  "
+            style="@style/StyleListViewItem"
+            android:textColor="#ffffff"
+            android:layout_alignParentRight="true"
+            android:textSize="15dp"
+            android:id="@+id/queryConsumeListItem_Summary"/>
+    </RelativeLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/queryConsumeListItem_List">
+
+    </ListView>
+</LinearLayout>

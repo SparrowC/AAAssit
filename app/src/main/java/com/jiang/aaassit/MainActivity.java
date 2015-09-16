@@ -1,13 +1,19 @@
 package com.jiang.aaassit;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.jiang.aaassit.Activities.ActivityFrame;
+import com.jiang.aaassit.Activities.ActivityAccountBook;
+import com.jiang.aaassit.Activities.ActivityCategory;
+import com.jiang.aaassit.Activities.ActivityConsumeRecode;
+import com.jiang.aaassit.Activities.ActivityStatistics;
+import com.jiang.aaassit.Activities.Base.ActivityFrame;
+import com.jiang.aaassit.Activities.ActivityQueryConsume;
+import com.jiang.aaassit.Activities.ActivityUser;
 import com.jiang.aaassit.Adapter.GridViewAdapter;
 import com.jiang.aaassit.Beans.GVItem;
-import com.jiang.aaassit.controls.SlideMenuItem;
-import com.jiang.aaassit.controls.SlideMenuView;
 
 
 public class MainActivity extends ActivityFrame {
@@ -18,14 +24,23 @@ public class MainActivity extends ActivityFrame {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AppenMainBody(R.layout.gridview);
-        gvMainBody= (GridView) findViewById(R.id.gvMainBody);
+        InitWidgets();
         InitGVItem();
         gvMainBody.setAdapter(new GridViewAdapter(this, mItem));
-
+        gvMainBody.setOnItemClickListener(new OnGridViewItemClick());
         CreateSlideMenu(R.array.SlideMenuList);
-
+        InitBack(MainActivity.this);
     }
 
+    @Override
+    protected void InitWidgets() {
+        gvMainBody= (GridView) findViewById(R.id.gvMainBody);
+    }
+
+    @Override
+    protected void InitListeners() {
+
+    }
 
 
     private void InitGVItem() {
@@ -48,5 +63,41 @@ public class MainActivity extends ActivityFrame {
         mItem[5].name=this.getString(R.string.member);
     }
 
+    private class OnGridViewItemClick implements AdapterView.OnItemClickListener {
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            GVItem item= (GVItem) parent.getItemAtPosition(position);
+           GVClickAction(item.name);
+        }
+    }
+
+    private void GVClickAction(String name) {
+        if(name==this.getString(R.string.history))
+        {
+            OpenActivity(this,ActivityConsumeRecode.class);
+        }
+        if(name==this.getString(R.string.search))
+        {
+            OpenActivity(this, ActivityQueryConsume.class);
+        }
+        if(name==this.getString(R.string.statistics))
+        {
+            OpenActivity(this, ActivityStatistics.class);
+        }
+        if(name==this.getString(R.string.check))
+        {
+            OpenActivity(this, ActivityAccountBook.class);
+        }
+        if(name==this.getString(R.string.categories))
+        {
+            OpenActivity(this, ActivityCategory.class);
+        }
+        if(name==this.getString(R.string.member))
+        {
+            OpenActivity(this, ActivityUser.class);
+        }
+
+    }
 
 }

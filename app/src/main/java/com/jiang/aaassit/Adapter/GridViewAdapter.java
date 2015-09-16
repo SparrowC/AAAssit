@@ -32,7 +32,7 @@ public class GridViewAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return mItem;
+        return mItem[position];
     }
 
     @Override

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jiang.aaassit" >
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +17,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activities.ActivityUser"/>
+        <activity android:name=".Activities.ActivityAccountBook"/>
+        <activity android:name=".Activities.ActivityCategory"/>
+        <activity android:name=".Activities.ActivityCategoryAdd"/>
+        <activity android:name=".Activities.ActivityConsumeRecode"/>
+        <activity android:name=".Activities.ActivityQueryConsume"/>
+        <activity android:name=".Activities.ActivityStatistics"/>
     </application>
 
 </manifest>

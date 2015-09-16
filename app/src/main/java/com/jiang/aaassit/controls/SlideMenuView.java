@@ -2,7 +2,10 @@ package com.jiang.aaassit.controls;
 
 
 import android.app.Activity;
+import android.content.Context;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
@@ -30,12 +33,25 @@ public class SlideMenuView {
     public SlideMenuView(Activity activity) {
         mActivity = activity;
         mSlideMenuItemListener= (OnSlideMenuItemListener) activity;
+        isClosed=true;
+
         mRelativeLayoutBottomBox = (RelativeLayout) mActivity.findViewById(R.id.main_bottom);
         bottomBar=(RelativeLayout) mActivity.findViewById(R.id.bottomBar);
         mListview= (ListView) mActivity.findViewById(R.id.slideList);
+
         bottomBar.setOnClickListener(new OnSlideMenuClick());
         mListview.setOnItemClickListener(new OnSlideMenuItemClick());
-        isClosed=true;
+        bottomBar.setFocusableInTouchMode(true);
+        bottomBar.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(keyCode==KeyEvent.KEYCODE_MENU&&event.getAction()==KeyEvent.ACTION_UP)
+                    Open();
+                return false;
+            }
+        });
+
+
     }
 
     public void Open()
@@ -47,7 +63,9 @@ public class SlideMenuView {
     }
     public void Close()
     {
-        RelativeLayout.LayoutParams params=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,160);
+        WindowManager manager= (WindowManager) mActivity.getSystemService(Context.WINDOW_SERVICE);
+        int hight=manager.getDefaultDisplay().getHeight();
+        RelativeLayout.LayoutParams params=new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,hight/8);
         params.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
         mRelativeLayoutBottomBox.setLayoutParams(params);
 

@@ -26,8 +26,8 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"/>
         <ImageView
-            android:layout_width="95px"
-            android:layout_height="80px"
+            android:layout_width="70dp"
+            android:layout_height="60dp"
             android:src="@drawable/gear24"
             android:scaleType="fitXY"
             android:layout_centerVertical="true"
