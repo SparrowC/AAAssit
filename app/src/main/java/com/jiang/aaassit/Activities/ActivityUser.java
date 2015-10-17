@@ -55,7 +55,6 @@ public class ActivityUser extends ActivityFrame {
                 }
             }
         });
-
         registerForContextMenu(mUserList);
     }
 
